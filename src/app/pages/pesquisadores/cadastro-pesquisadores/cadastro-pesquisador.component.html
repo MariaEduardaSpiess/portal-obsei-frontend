@@ -1,0 +1,19 @@
+<form nz-form nzLayout="vertical" [formGroup]="form" (ngSubmit)="save()">
+    <nz-form-item>
+        <nz-form-label nzRequired>Nome</nz-form-label>
+        <nz-form-control nzErrorTip="Informe seu Nome.">
+            <input nz-input formControlName="nome"/>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label nzRequired>Endereço Currículo Lattes</nz-form-label>
+        <nz-form-control nzErrorTip="Informe seu Currículo Lattes">
+            <input nz-input formControlName="lattes"/>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-control>
+            <button nz-button nzType="primary">Salvar</button>
+        </nz-form-control>
+    </nz-form-item>
+</form>
