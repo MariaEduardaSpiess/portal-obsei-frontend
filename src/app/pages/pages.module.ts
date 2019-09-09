@@ -6,13 +6,14 @@ import { PesquisadoresService } from './pesquisadores/pesquisadores.service';
 import { ConsultaPesquisadoresComponent } from './pesquisadores/consulta-pesquisadores/consulta-pesquisadores.component';
 import { CadastroPesquisadorComponent } from './pesquisadores/cadastro-pesquisadores/cadastro-pesquisador.component';
 import { HomeComponent } from './home/home.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { UtilsService } from '../utils/utils.service';
+import { GeradorPaginaComponent } from './gerador-pagina/gerador-pagina.component';
 
 @NgModule({
-    imports: [PagesRoutingModule, NgZorroAntdModule, CommonModule, ReactiveFormsModule],
+    imports: [PagesRoutingModule, NgZorroAntdModule, CommonModule, ReactiveFormsModule, FormsModule],
     exports: [],
-    declarations: [ConsultaPesquisadoresComponent, CadastroPesquisadorComponent, HomeComponent],
+    declarations: [ConsultaPesquisadoresComponent, CadastroPesquisadorComponent, HomeComponent, GeradorPaginaComponent],
     providers: [PesquisadoresService, UtilsService],
 })
 export class PagesModule { }
