@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "portal-obsei-angular": {
+    "portal-obsei": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -36,7 +36,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/portal-obsei-angular",
+            "outputPath": "dist/portal-obsei",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -87,22 +87,22 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "portal-obsei-angular:build"
+            "browserTarget": "portal-obsei:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "portal-obsei-angular:build:production"
+              "browserTarget": "portal-obsei:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "portal-obsei-angular:build"
+            "browserTarget": "portal-obsei:build"
           }
         }
       }
     }
   },
-  "defaultProject": "portal-obsei-angular"
+  "defaultProject": "portal-obsei"
 }
