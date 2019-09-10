@@ -14,9 +14,9 @@
     <nz-form-item>
         <nz-form-label nzFor="captcha" nzRequired>Logo</nz-form-label>
         <nz-form-control nzErrorTip="Please input the captcha you got!">
-            <nz-upload nzAction="https://jsonplaceholder.typicode.com/posts/">
-                <button nz-button><i nz-icon nzType="upload"></i><span>Selecionar Arquivo</span></button>
-            </nz-upload>
+            <input id="input-file" type="file" style="display: none;" (change)="changeFile($event.target)">
+            <button nz-button nzType="default" (click)="uploadFile()"><i nz-icon nzType="upload"></i>Selecionar</button>
+            <span class="file-name" *ngIf="form.value.logo">{{ form.value.descricaoLogo }}</span>
         </nz-form-control>
     </nz-form-item>
     <nz-form-item nz-row>
@@ -33,19 +33,13 @@
                 <div class="gutter-box">
                     <h1>{{ form.value.headline || 'Conheça-nos'}}</h1>
                     <p>
-                        O Observatório do Empreendedorismo e Inovação (OBSEI) foi criado em 2017, como um projeto de
-                        pesquisa
-                        que tem sido implementado e desenvolvido por professores e pesquisadores da Faculdade SOCIESC de
-                        Blumenau.
-                        O OBSEI atualmente está inserido no grupo de pesquisa em Gestão e Tecnologia da Informação e
-                        Conhecimento, integrado ao conselho nacional de desenvolvimento científico e tecnológico
-                        (CNPq/DGP).
+                        {{ form.value.texto || exampleText }}
                     </p>
                 </div>
             </div>
             <div nz-col class="gutter-row" nzSpan="12">
                 <div class="gutter-box" class="logo">
-                    <img src="http://www.obsei.com.br/images/logo_trasparente.png" width="318" height="192" alt="">
+                    <img [src]="form.value.logo ? form.value.logo : 'http://www.obsei.com.br/images/logo_trasparente.png'" width="318" height="192" alt="">
                 </div>
             </div>
         </div>
