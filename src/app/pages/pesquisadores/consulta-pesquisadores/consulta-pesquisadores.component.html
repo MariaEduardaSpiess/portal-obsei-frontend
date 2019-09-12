@@ -1,3 +1,12 @@
+<div nz-row nzGutter="16" style="margin-bottom: 1rem">
+    <div nz-col class="gutter-row" nzSpan="18">
+        <h3>Pesquisadores</h3>
+    </div>
+    <div nz-col class="gutter-row" nzSpan="6">
+        <button nz-button nzType="primary" style="float: right" routerLink="/cadastro-pesquisador" ><i nz-icon type="plus-circle"></i>Adicionar</button>
+    </div>
+</div>
+
 <nz-table [nzData]="pesquisadores">
     <thead>
         <tr>

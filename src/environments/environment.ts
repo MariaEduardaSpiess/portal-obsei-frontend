@@ -2,8 +2,16 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+const baseUrl = 'https://portal-obsei-api.herokuapp.com';
+
+const API_HEROKU = {
+    getPesquisadores: '/pesquisadores',
+    postPesquisadores: '/pesquisador'
+}
+
 export const environment = {
-  production: false
+    production: false,
+    api: API_HEROKU
 };
 
 /*
