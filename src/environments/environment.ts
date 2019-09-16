@@ -4,14 +4,19 @@
 
 const baseUrl = 'https://portal-obsei-api.herokuapp.com';
 
+const API_LOCAL = {
+    getPesquisadores: 'http://localhost:8080' + '/pesquisadores',
+    postPesquisadores: 'http://localhost:8080' + '/pesquisador'
+}
+
 const API_HEROKU = {
-    getPesquisadores: '/pesquisadores',
-    postPesquisadores: '/pesquisador'
+    getPesquisadores: baseUrl + '/pesquisadores',
+    postPesquisadores: baseUrl + '/pesquisador'
 }
 
 export const environment = {
     production: false,
-    api: API_HEROKU
+    api: API_LOCAL
 };
 
 /*

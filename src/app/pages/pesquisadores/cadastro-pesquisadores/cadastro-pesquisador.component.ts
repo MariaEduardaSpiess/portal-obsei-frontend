@@ -21,7 +21,10 @@ export class CadastroPesquisadorComponent implements OnInit {
         this.utils.validateForm(this.form);
 
         if (this.form.valid) {
-            this.mainService.inserirPesquisador(this.form.value);
+            this.mainService.inserirPesquisador(this.form.value)
+                .subscribe(() => {
+                    console.log('deu boa');
+                });
         }
     }
 }
