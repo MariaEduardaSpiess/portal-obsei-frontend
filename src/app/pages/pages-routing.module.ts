@@ -4,6 +4,7 @@ import { ConsultaPesquisadoresComponent } from './pesquisadores/consulta-pesquis
 import { CadastroPesquisadorComponent } from './pesquisadores/cadastro-pesquisadores/cadastro-pesquisador.component';
 import { HomeComponent } from './home/home.component';
 import { GeradorPaginaComponent } from './gerador-pagina/gerador-pagina.component';
+import { AreaPesquisaComponent } from './area-pesquisa/area-pesquisa.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'pesquisadores', component: ConsultaPesquisadoresComponent },
   { path: 'cadastro-pesquisador', component: CadastroPesquisadorComponent },
   { path: 'gerador-pagina', component: GeradorPaginaComponent },
+  { path: 'areas-pesquisa', component: AreaPesquisaComponent },
 ];
 
 @NgModule({

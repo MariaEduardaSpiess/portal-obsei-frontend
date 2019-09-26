@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { GeradorPaginaService } from './gerador-pagina.service';
 
 @Component({
     selector: 'gerador-pagina',
@@ -16,12 +17,12 @@ export class GeradorPaginaComponent implements OnInit {
 
     form = new FormGroup({
         headline: new FormControl(),
-        texto: new FormControl(),
+        descricao: new FormControl(),
         logo: new FormControl(),
         descricaoLogo: new FormControl()
     })
 
-    constructor() { }
+    constructor(private mainService: GeradorPaginaService) { }
 
     ngOnInit() { }
 
@@ -32,13 +33,20 @@ export class GeradorPaginaComponent implements OnInit {
 
     changeFile(inputValue: any) {
         var file: File = inputValue.files[0];
-        this.form.patchValue({descricaoLogo: file.name});
-        
-        var myReader:FileReader = new FileReader();
-      
+        this.form.patchValue({ descricaoLogo: file.name });
+
+        var myReader: FileReader = new FileReader();
+
         myReader.onloadend = (e) => {
-            this.form.patchValue({logo: myReader.result});
+            this.form.patchValue({ logo: myReader.result });
         }
         myReader.readAsDataURL(file);
-      }
+    }
+
+    save() {
+        this.mainService.inserir(this.form.value)
+            .subscribe(() => {
+                console.log('top')
+            });
+    }
 }
