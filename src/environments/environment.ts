@@ -16,7 +16,8 @@ const API_LOCAL = {
 const API_HEROKU = {
     getPesquisadores: baseUrl + '/pesquisadores',
     postPesquisadores: baseUrl + '/pesquisador',
-    postGeradorPagina: baseUrl + '/pagina-pesquisa'
+    postGeradorPagina: baseUrl + '/pagina-pesquisa',
+    getAreasPesquisa: baseUrl + '/areas-pesquisa',
 }
 
 export const environment = {
