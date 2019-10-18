@@ -49,4 +49,6 @@ export class AreaPesquisaComponent implements OnInit {
     cancelEdit() {
         this.editId = undefined;
     }
+
+    save() {}
 }
