@@ -1,0 +1,31 @@
+<div nz-row nzGutter="16" style="margin-bottom: 1rem">
+    <div nz-col class="gutter-row" nzSpan="18">
+        <h3>Links Úteis</h3>
+    </div>
+    <div nz-col class="gutter-row" nzSpan="6">
+        <button nz-button nzType="primary" class="float-right" routerLink="/cadastro-link-util" ><i nz-icon type="plus-circle"></i>Adicionar</button>
+    </div>
+</div>
+
+<nz-table [nzData]="links">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Link</th>
+            <th>Categoria</th>
+            <th>Ação</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let link of links">
+            <td>{{link.titulo}}</td>
+            <td>{{link.link}}</td>
+            <td>{{link.categoriaLink.nome}}</td>
+            <td>
+                <a routerLink="/cadastro-link-util">Editar</a>
+                <nz-divider nzType="vertical"></nz-divider>
+                <a>Excluir</a>
+            </td>
+        </tr>
+    </tbody>
+</nz-table>

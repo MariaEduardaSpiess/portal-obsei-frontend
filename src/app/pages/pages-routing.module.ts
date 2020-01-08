@@ -7,6 +7,9 @@ import { GeradorPaginaComponent } from './gerador-pagina/gerador-pagina.componen
 import { AreaPesquisaComponent } from './area-pesquisa/area-pesquisa.component';
 import { ConsultaGrupoPesquisaComponent } from './grupo-pesquisa/consulta-grupo-pesquisa/consulta-grupo-pesquisa.component';
 import { CadastroGrupoPesquisaComponent } from './grupo-pesquisa/cadastro-grupo-pesquisa/cadastro-grupo-pesquisa.component';
+import { CategoriaLinkComponent } from './categoria-link/categoria-link.component';
+import { ConsultaLinksComponent } from './link-util/consulta-link/consulta-link.component';
+import { CadastroLinkComponent } from './link-util/cadastro-link/cadastro-link.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -17,6 +20,9 @@ const routes: Routes = [
   { path: 'areas-pesquisa', component: AreaPesquisaComponent },
   { path: 'grupos-pesquisa', component: ConsultaGrupoPesquisaComponent },
   { path: 'cadastro-grupo-pesquisa', component: CadastroGrupoPesquisaComponent },
+  { path: 'categoria-links-uteis', component: CategoriaLinkComponent },
+  { path: 'consulta-links-uteis', component: ConsultaLinksComponent },
+  { path: 'cadastro-link-util', component: CadastroLinkComponent },
 ];
 
 @NgModule({

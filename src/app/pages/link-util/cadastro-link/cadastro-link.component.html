@@ -1,0 +1,27 @@
+<form nz-form nzLayout="vertical" [formGroup]="form" (ngSubmit)="save()">
+    <nz-form-item>
+        <nz-form-label nzRequired>Título</nz-form-label>
+        <nz-form-control nzErrorTip="Informe o Título.">
+            <input nz-input formControlName="titulo" />
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label nzRequired>Link</nz-form-label>
+        <nz-form-control nzErrorTip="Informe o Título.">
+            <input nz-input formControlName="link" />
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label nzRequired>Categoria</nz-form-label>
+        <nz-form-control nzErrorTip="Informe a Categoria">
+            <nz-select formControlName="categoriaLink" nzAllowClear nzPlaceHolder="Selecione">
+                <nz-option *ngFor="let categoria of categorias" [nzValue]="categoria" [nzLabel]="categoria.nome"></nz-option>
+            </nz-select>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-control>
+            <button nz-button nzType="primary">Salvar</button>
+        </nz-form-control>
+    </nz-form-item>
+</form>

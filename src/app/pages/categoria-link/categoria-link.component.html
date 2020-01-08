@@ -1,0 +1,50 @@
+<div nz-row nzGutter="16" style="margin-bottom: 1rem">
+    <div nz-col class="gutter-row" nzSpan="18">
+        <h3>Categorias de Links</h3>
+    </div>
+    <div nz-col class="gutter-row" nzSpan="6">
+        <button nz-button nzType="primary" class="float-right"><i nz-icon
+                type="plus-circle"></i>Adicionar</button>
+    </div>
+</div>
+
+<nz-table #table [nzData]="form.value.categorias">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of table.data; let i = index">
+            <td>
+                <div *ngIf="!editId; else editInput">
+                    {{data.nome}}
+                </div>
+                <ng-template #editInput>
+                    <form [formGroup]="form">
+                        <div formArrayName="categorias">
+                            <div [formGroupName]="i">
+                                <input type="text" nz-input formControlName="nome">
+                            </div>
+                        </div>
+                    </form>
+                </ng-template>
+            </td>
+            <td>
+                <div class="float-right">
+                    <div *ngIf="!editId">
+                        <a (click)="edit(data.id)">Editar</a>
+                        <nz-divider nzType="vertical"></nz-divider>
+                        <a>Excluir</a>
+                    </div>
+                    <div *ngIf="editId">
+                        <a (click)="save()">Salvar</a>
+                        <nz-divider nzType="vertical"></nz-divider>
+                        <a (click)="cancelEdit()">Cancelar</a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</nz-table>

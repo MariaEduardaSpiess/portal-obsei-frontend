@@ -11,6 +11,9 @@ const API_LOCAL = {
     getAreasPesquisa: 'http://localhost:8080' + '/areas-pesquisa',
     getGruposPesquisa: 'http://localhost:8080' + '/grupos-pesquisa',
     postGrupoPesquisa: 'http://localhost:8080' + '/grupo-pesquisa',
+    getCategoriasLinks: 'http://localhost:8080' + '/categorias-links',
+    getLinksUteis: 'http://localhost:8080' + '/links-uteis',
+    postLinkUtil: 'http://localhost:8080' + '/link-util',
 }
 
 const API_HEROKU = {
@@ -20,6 +23,7 @@ const API_HEROKU = {
     getAreasPesquisa: baseUrl + '/areas-pesquisa',
     getGruposPesquisa: baseUrl + '/grupos-pesquisa',
     postGrupoPesquisa: baseUrl + '/grupo-pesquisa',
+    getCategoriasLinks: baseUrl + '/categorias-links',
 }
 
 export const environment = {
