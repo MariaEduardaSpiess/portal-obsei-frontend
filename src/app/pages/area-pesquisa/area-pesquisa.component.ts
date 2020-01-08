@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AreaPesquisaService } from './area-pesquisa.service';
 import { FormGroup, FormArray, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { AreaPesquisa } from 'src/app/models/area-pesquisa';
 
 @Component({
     selector: 'area-pesquisa',
@@ -9,7 +10,7 @@ import { FormGroup, FormArray, FormBuilder, FormControl, Validators } from '@ang
 
 export class AreaPesquisaComponent implements OnInit {
 
-    areasPesquisa: Array<any>;
+    areasPesquisa: Array<AreaPesquisa>;
     editId: number;
 
     form = new FormGroup({

@@ -1,0 +1,21 @@
+<form nz-form nzLayout="vertical" [formGroup]="form" (ngSubmit)="save()">
+    <nz-form-item>
+        <nz-form-label nzRequired>Nome</nz-form-label>
+        <nz-form-control nzErrorTip="Informe seu Nome.">
+            <input nz-input formControlName="nome" />
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label nzRequired>Área de Pesquisa</nz-form-label>
+        <nz-form-control nzErrorTip="Informe a Área de Pesquisa">
+            <nz-select formControlName="areaPesquisa" nzAllowClear nzPlaceHolder="Choose">
+                <nz-option *ngFor="let areaPesquisa of areasPesquisa" [nzValue]="areaPesquisa" [nzLabel]="areaPesquisa.nome"></nz-option>
+            </nz-select>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-control>
+            <button nz-button nzType="primary">Salvar</button>
+        </nz-form-control>
+    </nz-form-item>
+</form>

@@ -1,0 +1,29 @@
+<div nz-row nzGutter="16" style="margin-bottom: 1rem">
+    <div nz-col class="gutter-row" nzSpan="18">
+        <h3>Grupos de Pesquisa</h3>
+    </div>
+    <div nz-col class="gutter-row" nzSpan="6">
+        <button nz-button nzType="primary" class="float-right" routerLink="/cadastro-grupo-pesquisa" ><i nz-icon type="plus-circle"></i>Adicionar</button>
+    </div>
+</div>
+
+<nz-table [nzData]="gruposPesquisa">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Área de Atuação</th>
+            <th>Ação</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let grupoPesquisa of gruposPesquisa">
+            <td>{{grupoPesquisa.nome}}</td>
+            <td>{{grupoPesquisa.areaPesquisa.nome}}</td>
+            <td>
+                <a routerLink="/cadastro-pesquisador">Editar</a>
+                <nz-divider nzType="vertical"></nz-divider>
+                <a>Excluir</a>
+            </td>
+        </tr>
+    </tbody>
+</nz-table>

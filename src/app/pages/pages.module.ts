@@ -12,11 +12,14 @@ import { GeradorPaginaComponent } from './gerador-pagina/gerador-pagina.componen
 import { GeradorPaginaService } from './gerador-pagina/gerador-pagina.service';
 import { AreaPesquisaService } from './area-pesquisa/area-pesquisa.service';
 import { AreaPesquisaComponent } from './area-pesquisa/area-pesquisa.component';
+import { CadastroGrupoPesquisaComponent } from './grupo-pesquisa/cadastro-grupo-pesquisa/cadastro-grupo-pesquisa.component';
+import { ConsultaGrupoPesquisaComponent } from './grupo-pesquisa/consulta-grupo-pesquisa/consulta-grupo-pesquisa.component';
+import { GrupoPesquisaService } from './grupo-pesquisa/grupo-pesquisa.service';
 
 @NgModule({
     imports: [PagesRoutingModule, NgZorroAntdModule, CommonModule, ReactiveFormsModule, FormsModule],
     exports: [],
-    declarations: [ConsultaPesquisadoresComponent, CadastroPesquisadorComponent, HomeComponent, GeradorPaginaComponent, AreaPesquisaComponent],
-    providers: [PesquisadoresService, UtilsService, GeradorPaginaService, AreaPesquisaService],
+    declarations: [ConsultaPesquisadoresComponent, CadastroPesquisadorComponent, HomeComponent, GeradorPaginaComponent, AreaPesquisaComponent, CadastroGrupoPesquisaComponent, ConsultaGrupoPesquisaComponent],
+    providers: [PesquisadoresService, UtilsService, GeradorPaginaService, AreaPesquisaService, GrupoPesquisaService],
 })
 export class PagesModule { }
