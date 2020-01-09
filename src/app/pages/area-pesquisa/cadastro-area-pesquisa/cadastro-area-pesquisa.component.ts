@@ -1,23 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UtilsService } from 'src/app/utils/utils.service';
-import { GrupoPesquisaService } from '../grupo-pesquisa.service';
 import { AreaPesquisa } from 'src/app/models/area-pesquisa';
+import { AreaPesquisaService } from '../area-pesquisa.service';
 
 @Component({
-    selector: 'cadastro-grupo-pesquisa',
-    templateUrl: 'cadastro-grupo-pesquisa.component.html'
+    selector: 'cadastro-area-pesquisa',
+    templateUrl: 'cadastro-area-pesquisa.component.html'
 })
 
-export class CadastroGrupoPesquisaComponent implements OnInit {
+export class CadastroAreaPesquisaComponent implements OnInit {
     
     areasPesquisa: AreaPesquisa[];
     form = new FormGroup({
         nome: new FormControl('', [Validators.required]),
-        areaPesquisa: new FormControl(AreaPesquisa, [Validators.required])
     });
     
-    constructor(private utils: UtilsService, private mainService: GrupoPesquisaService) { }
+    constructor(private utils: UtilsService, private mainService: AreaPesquisaService) { }
 
     ngOnInit() {}
 
@@ -25,7 +24,7 @@ export class CadastroGrupoPesquisaComponent implements OnInit {
         this.utils.validateForm(this.form);
 
         if (this.form.valid) {
-            this.mainService.postGrupoPesquisa(this.form.value)
+            this.mainService.postAreaPesquisa(this.form.value)
                 .subscribe(() => {
                     console.log('deu boa');
                 });

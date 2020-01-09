@@ -3,12 +3,12 @@
         <h3>Áreas de Pesquisa</h3>
     </div>
     <div nz-col class="gutter-row" nzSpan="6">
-        <button nz-button nzType="primary" class="float-right"><i nz-icon
+        <button nz-button nzType="primary" class="float-right" routerLink="/cadastro-area-pesquisa"><i nz-icon
                 type="plus-circle"></i>Adicionar</button>
     </div>
 </div>
 
-<nz-table #table [nzData]="form.value.areas">
+<nz-table #table [nzData]="areasPesquisa">
     <thead>
         <tr>
             <th>Nome</th>
@@ -17,20 +17,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let data of table.data; let i = index">
-            <td>
-                <div *ngIf="!editId; else editInput">
-                    {{data.nome}}
-                </div>
-                <ng-template #editInput>
-                    <form [formGroup]="form">
-                        <div formArrayName="areas">
-                            <div [formGroupName]="i">
-                                <input type="text" nz-input formControlName="nome">
-                            </div>
-                        </div>
-                    </form>
-                </ng-template>
-            </td>
+            <td>{{data.nome}}</td>
             <td>
                 <div class="float-right">
                     <div *ngIf="!editId">

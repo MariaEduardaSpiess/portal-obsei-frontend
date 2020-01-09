@@ -1,0 +1,29 @@
+<div nz-row nzGutter="16" style="margin-bottom: 1rem">
+    <div nz-col class="gutter-row" nzSpan="18">
+        <h3>Artigos</h3>
+    </div>
+    <div nz-col class="gutter-row" nzSpan="6">
+        <button nz-button nzType="primary" class="float-right" routerLink="/cadastro-artigo" ><i nz-icon type="plus-circle"></i>Adicionar</button>
+    </div>
+</div>
+
+<nz-table [nzData]="artigos">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Link</th>
+            <th>Ação</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let artigo of artigos">
+            <td>{{artigo.titulo}}</td>
+            <td>{{artigo.link}}</td>
+            <td>
+                <a routerLink="/cadastro-artigo">Editar</a>
+                <nz-divider nzType="vertical"></nz-divider>
+                <a>Excluir</a>
+            </td>
+        </tr>
+    </tbody>
+</nz-table>

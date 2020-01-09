@@ -9,11 +9,17 @@ const API_LOCAL = {
     postPesquisadores: 'http://localhost:8080' + '/pesquisador',
     postGeradorPagina: 'http://localhost:8080' + '/pagina-pesquisa',
     getAreasPesquisa: 'http://localhost:8080' + '/areas-pesquisa',
+    postAreaPesquisa: 'http://localhost:8080' + '/area-pesquisa',
     getGruposPesquisa: 'http://localhost:8080' + '/grupos-pesquisa',
     postGrupoPesquisa: 'http://localhost:8080' + '/grupo-pesquisa',
     getCategoriasLinks: 'http://localhost:8080' + '/categorias-links',
+    postCategoriaLinks: 'http://localhost:8080' + '/categoria-links',
     getLinksUteis: 'http://localhost:8080' + '/links-uteis',
     postLinkUtil: 'http://localhost:8080' + '/link-util',
+    getQuestionarios: 'http://localhost:8080' + '/questionarios',
+    postQuestionario: 'http://localhost:8080' + '/questionario',
+    getArtigo: 'http://localhost:8080' + '/artigos',
+    postArtigo: 'http://localhost:8080' + '/artigo',
 }
 
 const API_HEROKU = {

@@ -11,4 +11,8 @@ export class CategoriaLinkService {
     getCategorias(): Observable<CategoriaLinks[]> {
         return this.http.get<CategoriaLinks[]>(environment.api.getCategoriasLinks);
     }
+    
+    postCategoria(payload: CategoriaLinks): Observable<CategoriaLinks> {
+        return this.http.post<CategoriaLinks>(environment.api.postCategoriaLinks, payload);
+    }
 }
