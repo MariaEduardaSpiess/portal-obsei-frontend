@@ -30,6 +30,12 @@ const API_HEROKU = {
     getGruposPesquisa: baseUrl + '/grupos-pesquisa',
     postGrupoPesquisa: baseUrl + '/grupo-pesquisa',
     getCategoriasLinks: baseUrl + '/categorias-links',
+    getLinksUteis: baseUrl + '/links-uteis',
+    postLinkUtil: baseUrl + '/link-util',
+    getQuestionarios: baseUrl + '/questionarios',
+    postQuestionario: baseUrl + '/questionario',
+    getArtigo: baseUrl + '/artigos',
+    postArtigo: baseUrl + '/artigo',
 }
 
 export const environment = {
