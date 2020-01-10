@@ -27,9 +27,11 @@ const API_HEROKU = {
     postPesquisadores: baseUrl + '/pesquisador',
     postGeradorPagina: baseUrl + '/pagina-pesquisa',
     getAreasPesquisa: baseUrl + '/areas-pesquisa',
+    postAreaPesquisa: baseUrl + '/area-pesquisa',
     getGruposPesquisa: baseUrl + '/grupos-pesquisa',
     postGrupoPesquisa: baseUrl + '/grupo-pesquisa',
     getCategoriasLinks: baseUrl + '/categorias-links',
+    postCategoriaLinks: baseUrl + '/categoria-links',
     getLinksUteis: baseUrl + '/links-uteis',
     postLinkUtil: baseUrl + '/link-util',
     getQuestionarios: baseUrl + '/questionarios',
@@ -40,7 +42,7 @@ const API_HEROKU = {
 
 export const environment = {
     production: false,
-    api: API_LOCAL
+    api: API_HEROKU
 };
 
 /*
