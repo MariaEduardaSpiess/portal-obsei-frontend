@@ -42,7 +42,7 @@ const API_HEROKU = {
 
 export const environment = {
     production: false,
-    api: API_HEROKU
+    api: API_LOCAL
 };
 
 /*

@@ -13,6 +13,7 @@ export class CadastroPesquisadorComponent implements OnInit {
 
     form = new FormGroup({
         nome: new FormControl('', [Validators.required]),
+        funcao: new FormControl('', [Validators.required]),
         lattes: new FormControl('', [Validators.required])
     });
     ngOnInit() { }
