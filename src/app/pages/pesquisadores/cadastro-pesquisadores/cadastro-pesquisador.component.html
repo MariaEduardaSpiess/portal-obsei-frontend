@@ -2,24 +2,32 @@
     <nz-form-item>
         <nz-form-label nzRequired>Nome</nz-form-label>
         <nz-form-control nzErrorTip="Informe o Nome.">
-            <input nz-input formControlName="nome"/>
+            <input nz-input formControlName="nome" />
         </nz-form-control>
     </nz-form-item>
     <nz-form-item>
         <nz-form-label nzRequired>Função</nz-form-label>
         <nz-form-control nzErrorTip="Informe a Função.">
-            <input nz-input formControlName="funcao"/>
+            <input nz-input formControlName="funcao" />
         </nz-form-control>
     </nz-form-item>
     <nz-form-item>
         <nz-form-label nzRequired>Endereço Currículo Lattes</nz-form-label>
         <nz-form-control nzErrorTip="Informe o Currículo Lattes">
-            <input nz-input formControlName="lattes"/>
+            <input nz-input formControlName="lattes" />
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label nzFor="captcha" nzRequired>Foto (500x500px)</nz-form-label>
+        <nz-form-control nzErrorTip="Informe a Foto!">
+            <input id="input-file" type="file" style="display: none;" (change)="changeFile($event.target)">
+            <button nz-button nzType="default" type="button" (click)="uploadFile()"><i nz-icon nzType="upload"></i>Selecionar</button>
+            <span class="file-name" *ngIf="form.value.foto">{{ form.value.descricaoFoto }}</span>
         </nz-form-control>
     </nz-form-item>
     <nz-form-item>
         <nz-form-control>
-            <button nz-button nzType="primary">Salvar</button>
+            <button nz-button nzType="primary" type="submit">Salvar</button>
         </nz-form-control>
     </nz-form-item>
 </form>
