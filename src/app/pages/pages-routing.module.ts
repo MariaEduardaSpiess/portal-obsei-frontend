@@ -16,9 +16,11 @@ import { ConsultaQuestionarioComponent } from './questionario/consulta-questiona
 import { CadastroQuestionarioComponent } from './questionario/cadastro-questionario/cadastro-questionario.component';
 import { ConsultaArtigoComponent } from './artigo/consulta-artigo/consulta-artigo.component';
 import { CadastroArtigoComponent } from './artigo/cadastro-artigo/cadastro-artigo.component';
+import { LayoutComponent } from './layout/layout.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/home' },
+  { path: '', pathMatch: 'full', component: LayoutComponent },
+  // { path: '', pathMatch: 'full', redirectTo: '/home' },
   { path: 'home', component: HomeComponent },
   { path: 'pesquisadores', component: ConsultaPesquisadoresComponent },
   { path: 'cadastro-pesquisador', component: CadastroPesquisadorComponent },
