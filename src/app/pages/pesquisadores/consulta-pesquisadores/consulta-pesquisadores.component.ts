@@ -23,4 +23,18 @@ export class ConsultaPesquisadoresComponent implements OnInit {
       });
   }
 
+  addPesquisador() {
+    localStorage.removeItem('pesquisador');
+  }
+
+  editarPesquisador(data) {
+    localStorage.setItem('pesquisador', JSON.stringify(data));
+  }
+
+  excluirPesquisador(id) {
+    this.pesquisadoresService.excluirPesquisador(id).subscribe(() => {
+      console.log('excluido');
+    });
+  }
+
 }

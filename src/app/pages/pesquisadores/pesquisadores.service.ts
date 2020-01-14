@@ -14,6 +14,14 @@ export class PesquisadoresService {
     }
 
     inserirPesquisador(payload): Observable<any> {
-        return this.http.post<any>(environment.api.postPesquisadores, payload);
+        return this.http.post<any>(environment.api.postPesquisador, payload);
+    }
+    
+    atualizarPesquisador(id, payload): Observable<any> {
+        return this.http.put<any>(environment.api.postPesquisador + '/' + id, payload);
+    }
+    
+    excluirPesquisador(id): Observable<any> {
+        return this.http.delete(environment.api.postPesquisador + '/' + id);
     }
 }

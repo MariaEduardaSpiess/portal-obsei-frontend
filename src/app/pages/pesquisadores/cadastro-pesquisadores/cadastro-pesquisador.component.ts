@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UtilsService } from 'src/app/utils/utils.service';
 import { PesquisadoresService } from '../pesquisadores.service';
+import { Location } from '@angular/common';
 
 @Component({
     selector: 'cadastro-pesquisador',
@@ -10,7 +11,10 @@ import { PesquisadoresService } from '../pesquisadores.service';
 })
 
 export class CadastroPesquisadorComponent implements OnInit {
-    constructor(private utils: UtilsService, private mainService: PesquisadoresService) { }
+
+    editPesquisador;
+
+    constructor(private utils: UtilsService, private mainService: PesquisadoresService, private _location: Location) { }
 
     form = new FormGroup({
         nome: new FormControl('', [Validators.required]),
@@ -20,7 +24,12 @@ export class CadastroPesquisadorComponent implements OnInit {
         descricaoFoto: new FormControl('', [Validators.required])
     });
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.editPesquisador = JSON.parse(localStorage.getItem('pesquisador'));
+        if (this.editPesquisador) {
+            this.form.patchValue(this.editPesquisador);
+        }
+    }
 
     uploadFile() {
         const element = document.querySelector('#input-file') as HTMLElement;
@@ -43,10 +52,25 @@ export class CadastroPesquisadorComponent implements OnInit {
         this.utils.validateForm(this.form);
 
         if (this.form.valid) {
-            this.mainService.inserirPesquisador(this.form.value)
-                .subscribe(() => {
-                    console.log('deu boa');
-                });
+            if (this.editPesquisador.id) {
+                this.mainService.atualizarPesquisador(this.editPesquisador.id, this.form.value)
+                    .subscribe(() => {
+                        this.utils.success('Sucesso!', 'O pesquisador foi atualizado com sucesso.', this.previousPage());
+                    }, err => {
+                        this.utils.error('Erro!', 'Não foi possível atualizar o pesquisador, entre em contato com o administrador do sistema.');
+                    });
+            } else {
+                this.mainService.inserirPesquisador(this.form.value)
+                    .subscribe(() => {
+                        this.utils.success('Sucesso!', 'O novo pesquisador foi salvo com sucesso.', this.previousPage());
+                    }, err => {
+                        this.utils.error('Erro!', 'Não foi possível salvar o pesquisador, entre em contato com o administrador do sistema.');
+                    });
+            }
         }
+    }
+
+    previousPage() {
+        this._location.back();
     }
 }
