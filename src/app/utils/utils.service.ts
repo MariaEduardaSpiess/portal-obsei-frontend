@@ -44,4 +44,14 @@ export class UtilsService {
             nzOnOk: callback
         });
     }
+
+    confirm(titulo, msg, callback): void {
+        this.modalService.confirm({
+            nzTitle: titulo,
+            nzContent: msg,
+            nzCancelText: 'Cancelar',
+            nzOkText: 'Excluir',
+            nzOnOk: callback
+        });
+    }
 }

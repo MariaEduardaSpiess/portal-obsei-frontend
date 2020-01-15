@@ -52,7 +52,7 @@ export class CadastroPesquisadorComponent implements OnInit {
         this.utils.validateForm(this.form);
 
         if (this.form.valid) {
-            if (this.editPesquisador.id) {
+            if (this.editPesquisador) {
                 this.mainService.atualizarPesquisador(this.editPesquisador.id, this.form.value)
                     .subscribe(() => {
                         this.utils.success('Sucesso!', 'O pesquisador foi atualizado com sucesso.', this.previousPage());
