@@ -3,12 +3,12 @@
         <h3>Áreas de Pesquisa</h3>
     </div>
     <div nz-col class="gutter-row" nzSpan="6">
-        <button nz-button nzType="primary" class="float-right" routerLink="/cadastro-area-pesquisa"><i nz-icon
+        <button nz-button nzType="primary" class="float-right" routerLink="/cadastro-area-pesquisa" (click)="addAreaPesquisa()"><i nz-icon
                 type="plus-circle"></i>Adicionar</button>
     </div>
 </div>
 
-<nz-table #table [nzData]="areasPesquisa">
+<nz-table #table [nzData]="areasPesquisa" [nzLoading]="isLoading">
     <thead>
         <tr>
             <th>Nome</th>
@@ -21,14 +21,9 @@
             <td>
                 <div class="float-right">
                     <div *ngIf="!editId">
-                        <a (click)="edit(data.id)">Editar</a>
+                        <a routerLink="/cadastro-area-pesquisa/" (click)="editarAreaPesquisa(data)">Editar</a>
                         <nz-divider nzType="vertical"></nz-divider>
-                        <a>Excluir</a>
-                    </div>
-                    <div *ngIf="editId">
-                        <a (click)="save()">Salvar</a>
-                        <nz-divider nzType="vertical"></nz-divider>
-                        <a (click)="cancelEdit()">Cancelar</a>
+                        <a (click)="excluirAreaPesquisa(data.id)">Excluir</a>
                     </div>
                 </div>
             </td>

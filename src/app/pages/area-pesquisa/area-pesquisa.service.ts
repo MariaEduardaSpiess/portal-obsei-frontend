@@ -12,11 +12,15 @@ export class AreaPesquisaService {
         return this.http.get<AreaPesquisa[]>(environment.api.getAreasPesquisa);
     }
 
-    postAreaPesquisa(payload: AreaPesquisa): Observable<AreaPesquisa> {
+    inserirAreaPesquisa(payload: AreaPesquisa): Observable<AreaPesquisa> {
         return this.http.post<AreaPesquisa>(environment.api.postAreaPesquisa, payload);
     }
     
-    putAreaPesquisa(payload: AreaPesquisa): Observable<AreaPesquisa> {
-        return this.http.put<AreaPesquisa>(environment.api.postAreaPesquisa, payload);
+    atualizarAreaPesquisa(id: number, payload: AreaPesquisa): Observable<any> {
+        return this.http.put<any>(environment.api.postAreaPesquisa + `/${id}`, payload);
+    }
+
+    excluirAreaPesquisa(id: number): Observable<AreaPesquisa> {
+        return this.http.delete<any>(environment.api.postAreaPesquisa + `/${id}`);
     }
 }
