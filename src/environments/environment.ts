@@ -20,6 +20,7 @@ const API_LOCAL = {
     postQuestionario: 'http://localhost:8080' + '/questionario',
     getArtigo: 'http://localhost:8080' + '/artigos',
     postArtigo: 'http://localhost:8080' + '/artigo',
+    postLogin: 'http://localhost:8080' + '/login',
 }
 
 const API_HEROKU = {

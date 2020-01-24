@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="inner-container">
+        <div class="login-form">
+            <h1 nz-title>Bem Vindo</h1>
+            <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+                <nz-form-item>
+                    <nz-form-control nzErrorTip="Informe o usuário.">
+                        <nz-input-group nzPrefixIcon="user">
+                            <input type="text" nz-input formControlName="userName" placeholder="Usuário" />
+                        </nz-input-group>
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                    <nz-form-control nzErrorTip="Informe a senha.">
+                        <nz-input-group nzPrefixIcon="lock">
+                            <input type="password" nz-input formControlName="password" placeholder="Senha" />
+                        </nz-input-group>
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                    <nz-form-control>
+                        <button class="login-form-button" nz-button [nzType]="'primary'">Entrar</button>
+                        <a class="login-form-reset-pass">Esqueci minha senha</a>
+                    </nz-form-control>
+                </nz-form-item>
+            </form>
+        </div>
+    </div>
+    <img class="logo-img" src="../../../assets/img/brand.png" alt="Logo do projeto OBSEI">
+</div>

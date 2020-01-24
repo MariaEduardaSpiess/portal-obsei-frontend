@@ -16,10 +16,13 @@ import { ConsultaQuestionarioComponent } from './questionario/consulta-questiona
 import { CadastroQuestionarioComponent } from './questionario/cadastro-questionario/cadastro-questionario.component';
 import { ConsultaArtigoComponent } from './artigo/consulta-artigo/consulta-artigo.component';
 import { CadastroArtigoComponent } from './artigo/cadastro-artigo/cadastro-artigo.component';
+import { AuthGuard } from '../security/auth.guard';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/home' },
-  { path: 'home', component: HomeComponent },
+  { path: '', pathMatch: 'full', redirectTo: '/home' },  
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent },
   { path: 'pesquisadores', component: ConsultaPesquisadoresComponent },
   { path: 'cadastro-pesquisador', component: CadastroPesquisadorComponent },
   { path: 'gerador-pagina', component: GeradorPaginaComponent },
