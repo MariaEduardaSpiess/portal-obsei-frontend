@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UtilsService } from 'src/app/utils/utils.service';
+import { AuthenticationService } from 'src/app/security/authentication.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { first } from 'rxjs/internal/operators/first';
 
 @Component({
     selector: 'app-login',
@@ -10,21 +14,28 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
 
     validateForm: FormGroup;
+    returnUrl: string;
 
-    submitForm(): void {
-        for (const i in this.validateForm.controls) {
-            this.validateForm.controls[i].markAsDirty();
-            this.validateForm.controls[i].updateValueAndValidity();
-        }
-    }
 
-    constructor(private fb: FormBuilder) { }
+    constructor(private fb: FormBuilder, private utils: UtilsService, private authService: AuthenticationService, private route: ActivatedRoute, private router: Router) { }
 
     ngOnInit(): void {
         this.validateForm = this.fb.group({
-            userName: [null, [Validators.required]],
-            password: [null, [Validators.required]],
-            remember: [true]
+            username: [null, [Validators.required]],
+            password: [null, [Validators.required]]
         });
+
+        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    }
+
+    submitForm(): void {
+        this.utils.validateForm(this.validateForm);
+        if (this.validateForm.valid) {
+            this.authService.login(this.validateForm.value)
+                .pipe(first())
+                .subscribe(() => {
+                    this.router.navigate([this.returnUrl]);
+                });
+        }
     }
 }
