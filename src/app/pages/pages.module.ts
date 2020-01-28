@@ -29,6 +29,7 @@ import { ConsultaArtigoComponent } from './artigo/consulta-artigo/consulta-artig
 import { CadastroArtigoComponent } from './artigo/cadastro-artigo/cadastro-artigo.component';
 import { ArtigoService } from './artigo/artigo.service';
 import { LoginComponent } from './login/login.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
     imports: [PagesRoutingModule, NgZorroAntdModule, CommonModule, ReactiveFormsModule, FormsModule],
@@ -50,7 +51,8 @@ import { LoginComponent } from './login/login.component';
         CadastroQuestionarioComponent,
         ConsultaArtigoComponent,
         CadastroArtigoComponent,
-        LoginComponent
+        LoginComponent,
+        WelcomeComponent
     ],
     providers: [
         PesquisadoresService,
@@ -62,6 +64,6 @@ import { LoginComponent } from './login/login.component';
         LinkUtilService,
         QuestionarioService,
         ArtigoService
-    ],
+    ]
 })
 export class PagesModule { }
