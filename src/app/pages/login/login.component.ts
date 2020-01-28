@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
 
     validateForm: FormGroup;
     returnUrl: string;
-
+    isError: boolean;
 
     constructor(private fb: FormBuilder, private utils: UtilsService, private authService: AuthenticationService, private route: ActivatedRoute, private router: Router) { }
 
@@ -26,6 +26,11 @@ export class LoginComponent implements OnInit {
         });
 
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+
+        this.validateForm.valueChanges.subscribe(() => {
+            this.isError = false;
+        });
+        this.validateForm.reset();
     }
 
     submitForm(): void {
@@ -35,6 +40,10 @@ export class LoginComponent implements OnInit {
                 .pipe(first())
                 .subscribe(() => {
                     this.router.navigate([this.returnUrl]);
+                }, error => { 
+                    this.validateForm.reset();
+                    console.log(error);
+                    this.isError = true;
                 });
         }
     }

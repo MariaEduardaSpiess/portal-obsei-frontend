@@ -17,6 +17,10 @@
                         </nz-input-group>
                     </nz-form-control>
                 </nz-form-item>
+                <nz-form-item *ngIf="isError">
+                    <nz-alert nzType="error" nzCloseable nzMessage="Usuário ou senha inválido.">
+                    </nz-alert>
+                </nz-form-item>
                 <nz-form-item>
                     <nz-form-control>
                         <button class="login-form-button" nz-button [nzType]="'primary'">Entrar</button>
