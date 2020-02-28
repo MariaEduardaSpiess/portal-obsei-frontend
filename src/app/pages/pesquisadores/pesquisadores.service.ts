@@ -24,4 +24,8 @@ export class PesquisadoresService {
     excluirPesquisador(id): Observable<any> {
         return this.http.delete(environment.api.postPesquisador + '/' + id);
     }
+
+    // getFotoPesquisador(id): Observable<any> {
+    //     return this.http.get();
+    // }
 }

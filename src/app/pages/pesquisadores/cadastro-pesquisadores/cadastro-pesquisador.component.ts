@@ -20,8 +20,10 @@ export class CadastroPesquisadorComponent implements OnInit {
         nome: new FormControl('', [Validators.required]),
         funcao: new FormControl('', [Validators.required]),
         lattes: new FormControl('', [Validators.required]),
-        foto: new FormControl('', [Validators.required]),
-        descricaoFoto: new FormControl('', [Validators.required])
+        foto: new FormGroup({
+            descricaoFoto: new FormControl('', [Validators.required]),
+            base64: new FormControl('', [Validators.required])
+        })
     });
 
     ngOnInit() {
@@ -31,6 +33,10 @@ export class CadastroPesquisadorComponent implements OnInit {
         }
     }
 
+    // getPicture() {
+    //     this
+    // }
+
     uploadFile() {
         const element = document.querySelector('#input-file') as HTMLElement;
         element.click();
@@ -38,19 +44,18 @@ export class CadastroPesquisadorComponent implements OnInit {
 
     changeFile(inputValue: any) {
         var file: File = inputValue.files[0];
-        this.form.patchValue({ descricaoFoto: file.name });
+        this.form.get('foto').patchValue({ descricaoFoto: file.name });
 
         var myReader: FileReader = new FileReader();
 
         myReader.onloadend = (e) => {
-            this.form.patchValue({ foto: myReader.result });
+            this.form.get('foto').patchValue({ base64: myReader.result });
         }
         myReader.readAsDataURL(file);
     }
 
     save(): void {
         this.utils.validateForm(this.form);
-
         if (this.form.valid) {
             if (this.editPesquisador) {
                 this.mainService.atualizarPesquisador(this.editPesquisador.id, this.form.value)
