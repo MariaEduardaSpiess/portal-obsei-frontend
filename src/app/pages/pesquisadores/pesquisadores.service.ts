@@ -25,7 +25,7 @@ export class PesquisadoresService {
         return this.http.delete(environment.api.postPesquisador + '/' + id);
     }
 
-    // getFotoPesquisador(id): Observable<any> {
-    //     return this.http.get();
-    // }
+    getFotoPesquisador(id): Observable<any> {
+        return this.http.get(environment.api.getFotoPesquisador + '/' + id);
+    }
 }

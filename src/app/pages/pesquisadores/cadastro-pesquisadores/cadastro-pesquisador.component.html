@@ -1,4 +1,4 @@
-<form nz-form nzLayout="vertical" [formGroup]="form" (ngSubmit)="save()">
+<form nz-form nzLayout="vertical" [formGroup]="form">
     <nz-form-item>
         <nz-form-label nzRequired>Nome</nz-form-label>
         <nz-form-control nzErrorTip="Informe o Nome.">
@@ -17,19 +17,20 @@
             <input nz-input formControlName="lattes" />
         </nz-form-control>
     </nz-form-item>
-    <form formControlName="foto">
-        <nz-form-item>
-            <nz-form-label nzFor="captcha" nzRequired>Foto (500x500px)</nz-form-label>
-            <nz-form-control nzErrorTip="Informe a Foto!">
-                <input id="input-file" type="file" style="display: none;" (change)="changeFile($event.target)">
-                <button nz-button nzType="default" type="button" (click)="uploadFile()"><i nz-icon nzType="upload"></i>Selecionar</button>
-                <span class="file-name" *ngIf="form.value.foto.base64">{{ form.value.foto.descricaoFoto }}</span>
-            </nz-form-control>
-        </nz-form-item>
-    </form>
+</form>
+<form [formGroup]="foto">
     <nz-form-item>
-        <nz-form-control>
-            <button nz-button nzType="primary" type="submit">Salvar</button>
+        <nz-form-label nzFor="captcha" nzRequired>Foto (500x500px)</nz-form-label>
+        <nz-form-control nzErrorTip="Informe a Foto!">
+            <input id="input-file" type="file" style="display: none;" (change)="changeFile($event.target)">
+            <button nz-button nzType="default" type="button" (click)="uploadFile()"><i nz-icon
+                    nzType="upload"></i>Selecionar</button>
+            <span class="file-name" *ngIf="foto.value.base64">{{ foto.value.descricaoFoto }}</span>
         </nz-form-control>
     </nz-form-item>
 </form>
+<nz-form-item>
+    <nz-form-control>
+        <button nz-button nzType="primary" type="submit" (click)="save()">Salvar</button>
+    </nz-form-control>
+</nz-form-item>

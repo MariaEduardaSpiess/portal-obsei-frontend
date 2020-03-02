@@ -3,24 +3,27 @@
 // The list of file replacements can be found in `angular.json`.
 
 const baseUrl = 'https://portal-obsei-api.herokuapp.com';
+const publicAPI = '/api/public/';
+const privateAPI = '/api/private/';
 
 const API_LOCAL = {
-    getPesquisadores: 'http://localhost:8080' + '/pesquisadores',
-    postPesquisador: 'http://localhost:8080' + '/pesquisador',
-    postGeradorPagina: 'http://localhost:8080' + '/pagina-pesquisa',
-    getAreasPesquisa: 'http://localhost:8080' + '/areas-pesquisa',
-    postAreaPesquisa: 'http://localhost:8080' + '/area-pesquisa',
-    getGruposPesquisa: 'http://localhost:8080' + '/grupos-pesquisa',
-    postGrupoPesquisa: 'http://localhost:8080' + '/grupo-pesquisa',
-    getCategoriasLinks: 'http://localhost:8080' + '/categorias-links',
-    postCategoriaLinks: 'http://localhost:8080' + '/categoria-links',
-    getLinksUteis: 'http://localhost:8080' + '/links-uteis',
-    postLinkUtil: 'http://localhost:8080' + '/link-util',
-    getQuestionarios: 'http://localhost:8080' + '/questionarios',
-    postQuestionario: 'http://localhost:8080' + '/questionario',
-    getArtigo: 'http://localhost:8080' + '/artigos',
-    postArtigo: 'http://localhost:8080' + '/artigo',
-    postLogin: 'http://localhost:8080' + '/login',
+    getPesquisadores:   'http://localhost:8080' + privateAPI + 'pesquisadores',
+    postPesquisador:    'http://localhost:8080' + privateAPI + 'pesquisador',
+    getFotoPesquisador: 'http://localhost:8080' + privateAPI + 'foto-pesquisador',
+    postGeradorPagina:  'http://localhost:8080' + privateAPI + 'pagina-pesquisa',
+    getAreasPesquisa:   'http://localhost:8080' + privateAPI + 'areas-pesquisa',
+    postAreaPesquisa:   'http://localhost:8080' + privateAPI + 'area-pesquisa',
+    getGruposPesquisa:  'http://localhost:8080' + privateAPI + 'grupos-pesquisa',
+    postGrupoPesquisa:  'http://localhost:8080' + privateAPI + 'grupo-pesquisa',
+    getCategoriasLinks: 'http://localhost:8080' + privateAPI + 'categorias-links',
+    postCategoriaLinks: 'http://localhost:8080' + privateAPI + 'categoria-links',
+    getLinksUteis:      'http://localhost:8080' + privateAPI + 'links-uteis',
+    postLinkUtil:       'http://localhost:8080' + privateAPI + 'link-util',
+    getQuestionarios:   'http://localhost:8080' + privateAPI + 'questionarios',
+    postQuestionario:   'http://localhost:8080' + privateAPI + 'questionario',
+    getArtigo:          'http://localhost:8080' + privateAPI + 'artigos',
+    postArtigo:         'http://localhost:8080' + privateAPI + 'artigo',
+    postLogin:          'http://localhost:8080' + publicAPI  + 'login',
 }
 
 const API_HEROKU = {

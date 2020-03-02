@@ -3,7 +3,6 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UtilsService } from 'src/app/utils/utils.service';
 import { AuthenticationService } from 'src/app/security/authentication.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { first } from 'rxjs/internal/operators/first';
 
 @Component({
     selector: 'app-login',
@@ -37,8 +36,8 @@ export class LoginComponent implements OnInit {
         this.utils.validateForm(this.validateForm);
         if (this.validateForm.valid) {
             this.authService.login(this.validateForm.value)
-                .pipe(first())
-                .subscribe(() => {
+                .subscribe((res) => {
+                    this.authService.setToken(res.token)
                     this.router.navigate([this.returnUrl]);
                 }, error => { 
                     this.validateForm.reset();

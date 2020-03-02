@@ -20,22 +20,26 @@ export class CadastroPesquisadorComponent implements OnInit {
         nome: new FormControl('', [Validators.required]),
         funcao: new FormControl('', [Validators.required]),
         lattes: new FormControl('', [Validators.required]),
-        foto: new FormGroup({
-            descricaoFoto: new FormControl('', [Validators.required]),
-            base64: new FormControl('', [Validators.required])
-        })
+    });
+
+    foto = new FormGroup({
+        descricaoFoto: new FormControl('', [Validators.required]),
+        base64: new FormControl('', [Validators.required])
     });
 
     ngOnInit() {
         this.editPesquisador = JSON.parse(localStorage.getItem('pesquisador'));
         if (this.editPesquisador) {
             this.form.patchValue(this.editPesquisador);
+            this.getPicture();
         }
     }
 
-    // getPicture() {
-    //     this
-    // }
+    getPicture() {
+        this.mainService.getFotoPesquisador(this.editPesquisador.id).subscribe(foto => {
+            this.foto.patchValue(foto);
+        });
+    }
 
     uploadFile() {
         const element = document.querySelector('#input-file') as HTMLElement;
@@ -44,34 +48,41 @@ export class CadastroPesquisadorComponent implements OnInit {
 
     changeFile(inputValue: any) {
         var file: File = inputValue.files[0];
-        this.form.get('foto').patchValue({ descricaoFoto: file.name });
+        this.foto.patchValue({ descricaoFoto: file.name });
 
         var myReader: FileReader = new FileReader();
 
         myReader.onloadend = (e) => {
-            this.form.get('foto').patchValue({ base64: myReader.result });
+            this.foto.patchValue({ base64: myReader.result });
         }
         myReader.readAsDataURL(file);
     }
 
     save(): void {
         this.utils.validateForm(this.form);
-        if (this.form.valid) {
+        if (this.form.valid && this.foto.valid) {
             if (this.editPesquisador) {
-                this.mainService.atualizarPesquisador(this.editPesquisador.id, this.form.value)
+                this.mainService.atualizarPesquisador(this.editPesquisador.id, this.editPesquisador.foto.id, this.getSavePayload())
                     .subscribe(() => {
                         this.utils.success('Sucesso!', 'O pesquisador foi atualizado com sucesso.', this.previousPage());
                     }, err => {
                         this.utils.error('Erro!', 'Não foi possível atualizar o pesquisador, entre em contato com o administrador do sistema.');
                     });
             } else {
-                this.mainService.inserirPesquisador(this.form.value)
+                this.mainService.inserirPesquisador(this.getSavePayload())
                     .subscribe(() => {
                         this.utils.success('Sucesso!', 'O novo pesquisador foi salvo com sucesso.', this.previousPage());
                     }, err => {
                         this.utils.error('Erro!', 'Não foi possível salvar o pesquisador, entre em contato com o administrador do sistema.');
                     });
             }
+        }
+    }
+
+    getSavePayload() {
+        return {
+            pesquisador: this.form.value,
+            fotoPesquisador: this.foto.value
         }
     }
 
